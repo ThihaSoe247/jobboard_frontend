@@ -33,7 +33,7 @@ export default function MyPostedJobs() {
       const res = await axios.get(
         `${
           import.meta.env.VITE_API_BASE_URL
-        }/recruiter/jobs/${jobId}/applications`,
+        }/api/recruiter/jobs/${jobId}/applications`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

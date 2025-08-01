@@ -43,9 +43,6 @@ export default function CreateJob() {
         }
       );
 
-      const newJob = res.data.job;
-      setJobs([newJob, ...jobs]);
-
       setSuccessMsg("✅ Job posted successfully!");
       setTitle("");
       setCompany("");
