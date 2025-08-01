@@ -11,11 +11,14 @@ export default function MyApplications() {
     const fetchApplications = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:4000/api/applicant/my", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/applicant/my`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setApplications(res.data.applications);
       } catch (error) {
         console.error("Failed to fetch applications", error);
@@ -54,9 +57,9 @@ export default function MyApplications() {
               >
                 <div className="flex items-start space-x-4">
                   {/* Logo placeholder */}
-                  {/* <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-700">
+                  <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-700">
                     {job.company[0]}
-                  </div> */}
+                  </div>
 
                   {/* Job info */}
                   <div>

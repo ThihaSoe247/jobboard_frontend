@@ -23,7 +23,7 @@ export default function Apply() {
       }
     }
     axios
-      .get(`/api/jobs/${id}`)
+      .get(`${import.meta.env.VITE_API_BASE_URL}/api/jobs/${id}`)
       .then((res) => setJob(res.data.job))
       .catch((err) => console.error("Failed to fetch job:", err));
   }, [id]);
@@ -38,7 +38,7 @@ export default function Apply() {
 
     try {
       const res = await axios.post(
-        `/api/applicant/${id}/apply`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/applicant/${id}/apply`,
         {
           resumeUrl,
           coverLetter,

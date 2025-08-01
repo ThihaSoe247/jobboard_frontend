@@ -18,11 +18,14 @@ export default function Register() {
     setError("");
 
     try {
-      const res = await axios.post("/api/register", {
-        name,
-        email,
-        password,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_BASE_URL}/api/register`,
+        {
+          name,
+          email,
+          password,
+        }
+      );
 
       localStorage.setItem("token", res.data.token);
       setToken(res.data.token);

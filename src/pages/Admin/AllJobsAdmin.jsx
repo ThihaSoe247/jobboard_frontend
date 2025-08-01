@@ -9,9 +9,12 @@ export default function AllJobsAdmin() {
 
   const fetchJobs = async () => {
     try {
-      const res = await axios.get("/api/admin/jobs", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        `${import.meta.env.VITE_API_BASE_URL}/api/admin/jobs`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setJobs(res.data.jobs);
     } catch (e) {
       console.error("Failed to fetch jobs", e);
@@ -31,7 +34,9 @@ export default function AllJobsAdmin() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure to delete this job?")) return;
     try {
-      await axios.delete(`/api/admin/jobs/delete/${id}`);
+      await axios.delete(
+        `${import.meta.env.VITE_API_BASE_URL}/api/admin/jobs/delete/${id}`
+      );
       setJobs((prev) => prev.filter((j) => j._id !== id));
     } catch (e) {
       console.error("Delete failed", e);
@@ -41,7 +46,7 @@ export default function AllJobsAdmin() {
   const handleApprove = async (id) => {
     try {
       await axios.put(
-        `/api/admin/jobs/approve/${id}`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/admin/jobs/approve/${id}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

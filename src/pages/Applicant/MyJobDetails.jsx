@@ -12,11 +12,14 @@ export default function MyJobDetails() {
     const fetchJob = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`http://localhost:4000/api/jobs/${jobId}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/jobs/${jobId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setJob(res.data.job);
       } catch (err) {
         console.error("Failed to fetch job", err);

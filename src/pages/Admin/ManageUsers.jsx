@@ -8,9 +8,12 @@ export default function ManageUsers() {
   const fetchUsers = async () => {
     const token = localStorage.getItem("token");
     try {
-      const res = await axios.get("http://localhost:4000/api/admin/users", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        `${import.meta.env.VITE_API_BASE_URL}/admin/users`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setUsers(res.data.users || []);
     } catch (err) {
       console.error("Error fetching users", err);
@@ -21,7 +24,7 @@ export default function ManageUsers() {
     const token = localStorage.getItem("token");
     try {
       await axios.put(
-        `http://localhost:4000/api/admin/users/${id}/role`,
+        `${import.meta.env.VITE_API_BASE_URL}/admin/users/${id}/role`,
         { role: newRole },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -40,9 +43,12 @@ export default function ManageUsers() {
     if (!confirm) return;
     const token = localStorage.getItem("token");
     try {
-      await axios.delete(`http://localhost:4000/api/admin/users/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.delete(
+        `${import.meta.env.VITE_API_BASE_URL}/admin/users/${id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       fetchUsers();
     } catch (err) {
       console.error("Failed to delete user", err);

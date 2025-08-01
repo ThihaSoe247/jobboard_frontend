@@ -15,7 +15,7 @@ export default function MyPostedJobs() {
     const fetchMyJobs = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:4000/api/recruiter/jobs/my",
+          `${import.meta.env.VITE_API_BASE_URL}/recruiter/jobs/my`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -31,7 +31,9 @@ export default function MyPostedJobs() {
   const handleViewApplicants = async (jobId) => {
     try {
       const res = await axios.get(
-        `http://localhost:4000/api/recruiter/jobs/${jobId}/applications`,
+        `${
+          import.meta.env.VITE_API_BASE_URL
+        }/recruiter/jobs/${jobId}/applications`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

@@ -10,9 +10,12 @@ export default function Profile() {
   const fetchProfile = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("/api/me", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        `${import.meta.env.VITE_API_BASE_URL}/api/me`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setProfile(res.data.user);
       setFormData({
         name: res.data.user.name,

@@ -10,9 +10,12 @@ export default function UpgradeRequest() {
   const handleUpgrade = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post("/api/applicant/request-recruiter", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_BASE_URL}/api/applicant/request-recruiter`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setMessage("Request submitted successfully! Wait for admin approval.");
     } catch (err) {
       setMessage(err.response?.data?.error || "Something went wrong.");

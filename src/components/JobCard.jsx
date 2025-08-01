@@ -19,7 +19,6 @@ export default function JobCard({ job }) {
         <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded-full capitalize">
           {job.type}
         </span>
-        {/* Remove approval badge */}
       </div>
 
       {/* Title */}

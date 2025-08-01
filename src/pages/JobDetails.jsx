@@ -13,7 +13,7 @@ export default function JobDetails() {
 
   useEffect(() => {
     axios
-      .get(`/api/jobs/${id}`)
+      .get(`${import.meta.env.VITE_API_BASE_URL}/api/jobs/${id}`)
       .then((res) => setJob(res.data.job))
       .catch((err) => console.error("Failed to fetch job", err));
   }, [id]);

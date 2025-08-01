@@ -20,7 +20,7 @@ export const UserProvider = ({ children }) => {
     }
 
     try {
-      const res = await axios.get("http://localhost:4000/api/me", {
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setName(res.data.user.name);
@@ -34,7 +34,7 @@ export const UserProvider = ({ children }) => {
 
   const fetchJobs = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/jobs");
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/jobs`);
       setJobs(res.data.jobs || []);
     } catch (err) {
       console.error("Failed to fetch jobs:", err);

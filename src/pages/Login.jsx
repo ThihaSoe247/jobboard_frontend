@@ -16,7 +16,10 @@ export default function Login() {
     setError("");
 
     try {
-      const res = await axios.post("/api/login", { email, password });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_BASE_URL}/api/login`,
+        { email, password }
+      );
       localStorage.setItem("token", res.data.token);
       setToken(res.data.token);
       await refreshUser();

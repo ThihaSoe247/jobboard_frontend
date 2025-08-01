@@ -7,16 +7,21 @@ export default function RecruiterRequests() {
 
   const fetchRequests = async () => {
     const token = localStorage.getItem("token");
-    const res = await axios.get("/api/admin/recruiter-requests", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const res = await axios.get(
+      `${import.meta.env.VITE_API_BASE_URL}/api/admin/recruiter-requests`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
     setRequests(res.data.requests || []);
   };
 
   const handleApprove = async (id) => {
     const token = localStorage.getItem("token");
     await axios.put(
-      `http://localhost:4000/api/admin/recruiter-requests/${id}/approve`,
+      `${
+        import.meta.env.VITE_API_BASE_URL
+      }/admin/recruiter-requests/${id}/approve`,
       {},
       {
         headers: { Authorization: `Bearer ${token}` },
@@ -29,7 +34,9 @@ export default function RecruiterRequests() {
   const handleReject = async (id) => {
     const token = localStorage.getItem("token");
     await axios.put(
-      `http://localhost:4000/api/admin/recruiter-requests/${id}/reject`,
+      `${
+        import.meta.env.VITE_API_BASE_URL
+      }/admin/recruiter-requests/${id}/reject`,
       {},
       {
         headers: { Authorization: `Bearer ${token}` },
