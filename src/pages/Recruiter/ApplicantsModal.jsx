@@ -107,7 +107,7 @@ export default function ApplicantsModal({ job, applicants, onClose }) {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M9 12h6m-6 4h6m2 5H7..."
+                        d="M17 20h5v-2a3 3 0 00-3-3h-1v-2a3 3 0 00-3-3H9a3 3 0 00-3 3v2H5a3 3 0 00-3 3v2h5m5 0v-4m0 0a3 3 0 110-6 3 3 0 010 6z"
                       />
                     </svg>
                     View Resume

@@ -52,7 +52,9 @@ export default function AllJobsAdmin() {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      fetchJobs();
+      setJobs((prev) =>
+        prev.map((job) => (job._id === id ? { ...job, isApproved: true } : job))
+      );
     } catch (e) {
       console.error("Approval failed", e);
     }
