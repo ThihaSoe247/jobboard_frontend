@@ -13,7 +13,7 @@ export default function MyJobDetails() {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          `${import.meta.env.VITE_API_BASE_URL}/jobs/${jobId}`,
+          `${import.meta.env.VITE_API_BASE_URL}/api/jobs/${jobId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -23,7 +23,7 @@ export default function CreateJob() {
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/recruiter/jobs/create`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/recruiter/jobs/create`,
         {
           title,
           company,

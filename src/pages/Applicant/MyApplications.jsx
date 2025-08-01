@@ -12,7 +12,7 @@ export default function MyApplications() {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          `${import.meta.env.VITE_API_BASE_URL}/applicant/my`,
+          `${import.meta.env.VITE_API_BASE_URL}/api/applicant/my`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

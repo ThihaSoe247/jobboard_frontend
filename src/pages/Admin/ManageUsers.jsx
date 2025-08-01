@@ -9,7 +9,7 @@ export default function ManageUsers() {
     const token = localStorage.getItem("token");
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/admin/users`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/admin/users`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -24,7 +24,7 @@ export default function ManageUsers() {
     const token = localStorage.getItem("token");
     try {
       await axios.put(
-        `${import.meta.env.VITE_API_BASE_URL}/admin/users/${id}/role`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/admin/users/${id}/role`,
         { role: newRole },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -44,7 +44,7 @@ export default function ManageUsers() {
     const token = localStorage.getItem("token");
     try {
       await axios.delete(
-        `${import.meta.env.VITE_API_BASE_URL}/admin/users/${id}`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/admin/users/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

@@ -21,7 +21,7 @@ export default function RecruiterRequests() {
     await axios.put(
       `${
         import.meta.env.VITE_API_BASE_URL
-      }/admin/recruiter-requests/${id}/approve`,
+      }/api/admin/recruiter-requests/${id}/approve`,
       {},
       {
         headers: { Authorization: `Bearer ${token}` },
@@ -36,7 +36,7 @@ export default function RecruiterRequests() {
     await axios.put(
       `${
         import.meta.env.VITE_API_BASE_URL
-      }/admin/recruiter-requests/${id}/reject`,
+      }/api/admin/recruiter-requests/${id}/reject`,
       {},
       {
         headers: { Authorization: `Bearer ${token}` },

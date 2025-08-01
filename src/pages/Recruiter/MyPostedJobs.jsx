@@ -15,7 +15,7 @@ export default function MyPostedJobs() {
     const fetchMyJobs = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_API_BASE_URL}/recruiter/jobs/my`,
+          `${import.meta.env.VITE_API_BASE_URL}/api/recruiter/jobs/my`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
