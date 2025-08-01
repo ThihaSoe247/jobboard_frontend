@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import defaultImage from "../assets/job.jpg";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useUser } from "../helpers/UserContext";
 
 export default function JobDetails() {
   const { id } = useParams();
   const [job, setJob] = useState(null);
+  const { role } = useUser();
 
   useEffect(() => {
     axios
@@ -68,9 +70,13 @@ export default function JobDetails() {
         {/* Apply Button */}
         <div className="text-center">
           <Link to={`/jobs/${id}/apply`}>
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-lg hover:bg-blue-700 transition">
-              Apply Now
-            </button>
+            {role === "applicant" ? (
+              <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-lg hover:bg-blue-700 transition">
+                Apply Now
+              </button>
+            ) : (
+              <h2 className="text-red-500">Only Applicants can do apply</h2>
+            )}
           </Link>
         </div>
       </div>

@@ -5,7 +5,6 @@ import Home from "../pages/Home.jsx";
 import Login from "../pages/Login.jsx";
 import Register from "../pages/Register.jsx";
 import JobDetails from "../pages/JobDetails.jsx";
-import Apply from "../pages/Apply.jsx";
 import MyApplications from "../pages/Applicant/MyApplications.jsx";
 import MyJobDetails from "../pages/Applicant/MyJobDetails.jsx";
 import UpgradeRequest from "../pages/Applicant/UpgradeRequest.jsx";
@@ -15,8 +14,8 @@ import Profile from "../pages/Profile.jsx";
 import AllJobsAdmin from "../pages/Admin/AllJobsAdmin.jsx";
 import CreateJob from "../pages/Recruiter/CreateJob.jsx";
 import MyPostedJobs from "../pages/Recruiter/MyPostedJobs.jsx";
+import Apply from "../pages/Applicant/Apply.jsx";
 const router = createBrowserRouter([
-  // 🌟 Welcome screen (no layout)
   {
     path: "/",
     element: <Welcome />,

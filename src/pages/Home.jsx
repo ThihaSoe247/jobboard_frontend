@@ -23,9 +23,18 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           {/* Feature Cards */}
-          <FeatureCard title="Browse Jobs" />
-          <FeatureCard title="Post a Job" />
-          <FeatureCard title="Apply Easily" />
+          <FeatureCard
+            title="Browse Jobs"
+            description="Explore thousands of opportunities from top companies tailored to your skills and interests."
+          />
+          <FeatureCard
+            title="Post a Job"
+            description="Effortlessly create job listings and connect with qualified candidates in just a few steps."
+          />
+          <FeatureCard
+            title="Apply Easily"
+            description="Apply to jobs quickly with a streamlined application process designed to save you time."
+          />
         </div>
 
         {/* Job Listings */}
@@ -48,9 +57,9 @@ export default function Home() {
   );
 }
 
-const FeatureCard = ({ title }) => (
+const FeatureCard = ({ title, description }) => (
   <div className="bg-white p-5 shadow-md rounded-lg border hover:shadow-lg transition">
     <h2 className="text-xl font-semibold mb-2 text-blue-600">{title}</h2>
-    <p className="text-gray-600">Description for {title}</p>
+    <p className="text-gray-600"> {description}</p>
   </div>
 );

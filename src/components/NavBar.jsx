@@ -17,12 +17,7 @@ export default function NavBar({ onMenuClick }) {
     <div className="fixed top-0 left-0 w-full z-50 bg-blue-600 text-white py-4 px-6 flex items-center justify-between shadow">
       <div className="flex items-center gap-4">
         <FiMenu size={24} onClick={onMenuClick} className="cursor-pointer" />
-        <span
-          className="text-xl font-bold cursor-pointer"
-          onClick={() => navigate("/")}
-        >
-          JobBoard
-        </span>
+        <span className="text-xl font-bold cursor-pointer">JobBoard</span>
       </div>
 
       <div className="flex items-center space-x-4">
