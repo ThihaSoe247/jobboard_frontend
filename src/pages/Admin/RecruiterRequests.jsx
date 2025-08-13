@@ -67,10 +67,10 @@ export default function RecruiterRequests() {
             >
               <div>
                 <p>
-                  <strong>Name:</strong> {req.user.name}
+                  <strong>Name:</strong> {req.user ? req.user.name : "N/A"}
                 </p>
                 <p>
-                  <strong>Email:</strong> {req.user.email}
+                  <strong>Email:</strong> {req.user ? req.user.email : "N/A"}
                 </p>
                 <p>
                   <strong>Status:</strong>{" "}
