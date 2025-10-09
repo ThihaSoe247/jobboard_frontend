@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function MyApplications() {
   const [applications, setApplications] = useState([]);
-
   const navigate = useNavigate();
+
   useEffect(() => {
     const fetchApplications = async () => {
       try {
@@ -14,14 +14,12 @@ export default function MyApplications() {
         const res = await axios.get(
           `${import.meta.env.VITE_API_BASE_URL}/api/applicant/my`,
           {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+            headers: { Authorization: `Bearer ${token}` },
           }
         );
         setApplications(res.data.applications);
       } catch (error) {
-        console.error("Failed to fetch applications", error);
+        console.error("Failed to fetch applications:", error);
       }
     };
 
@@ -44,24 +42,22 @@ export default function MyApplications() {
         <div className="space-y-4">
           {applications.map((app) => {
             const job = app.job;
+            if (!job) return null; // 👈 skip missing jobs
+
             const appliedDaysAgo = Math.floor(
               (new Date() - new Date(app.appliedAt)) / (1000 * 60 * 60 * 24)
             );
+
             return (
               <div
                 key={app._id}
                 onClick={() =>
-                  navigate(`/applicant/my-applications/${app.job._id}`)
+                  navigate(`/applicant/my-applications/${job._id}`)
                 }
                 className="cursor-pointer bg-white rounded-lg shadow border p-5 flex flex-col md:flex-row justify-between items-start md:items-center hover:shadow-md transition"
               >
+                {/* Left side (Job info) */}
                 <div className="flex items-start space-x-4">
-                  {/* Logo placeholder */}
-                  {/* <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-700">
-                    {job.company[0]}
-                  </div> */}
-
-                  {/* Job info */}
                   <div>
                     <h2 className="text-lg font-semibold text-gray-800">
                       {job.title}
@@ -70,9 +66,14 @@ export default function MyApplications() {
                           Rejected
                         </span>
                       )}
-                      {app.status === "viewed" && (
+                      {app.status === "reviewed" && (
                         <span className="ml-2 px-2 py-0.5 text-xs bg-blue-100 text-blue-600 rounded">
-                          Application Viewed
+                          Application Reviewed
+                        </span>
+                      )}
+                      {app.status === "accepted" && (
+                        <span className="ml-2 px-2 py-0.5 text-xs bg-green-100 text-green-600 rounded">
+                          Accepted
                         </span>
                       )}
                     </h2>
@@ -86,11 +87,11 @@ export default function MyApplications() {
                 {/* Right side details */}
                 <div className="mt-4 md:mt-0 text-right space-y-1">
                   <p className="text-sm font-semibold text-gray-800">
-                    {job.salary}
+                    {job.salary || "Negotiable"}
                   </p>
                   <p className="text-sm flex items-center justify-end text-gray-500">
                     <FaMapMarkerAlt className="mr-1" />
-                    {job.location}
+                    {job.location || "Remote"}
                   </p>
                   <p className="text-sm flex items-center justify-end text-gray-500">
                     <FaClock className="mr-1" />
