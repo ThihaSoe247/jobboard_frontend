@@ -57,9 +57,9 @@ export default function MyApplications() {
               >
                 <div className="flex items-start space-x-4">
                   {/* Logo placeholder */}
-                  <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-700">
+                  {/* <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-700">
                     {job.company[0]}
-                  </div>
+                  </div> */}
 
                   {/* Job info */}
                   <div>
