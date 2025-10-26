@@ -48,7 +48,7 @@ export const UserProvider = ({ children }) => {
 
   const refreshUser = async () => {
     await fetchUser();
-  }; // helpers/UserContext.js
+  }; 
   const updateUserFromResponse = (updatedData) => {
     setUserData((prev) => ({
       ...prev,
@@ -61,8 +61,7 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     fetchUser();
     fetchJobs();
-  }, [token]); // Re-fetch when token changes
-
+  }, [token]); 
   return (
     <UserContext.Provider
       value={{

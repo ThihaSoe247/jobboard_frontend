@@ -110,16 +110,6 @@ export default function Sidebar() {
           </>
         )}
       </nav>
-
-      {/* Bottom Settings */}
-      <div className="absolute bottom-6 left-6 text-gray-400 text-sm">
-        <button
-          onClick={() => navigate("/settings")}
-          className="flex items-center gap-2 hover:text-white"
-        >
-          <FiSettings /> Settings
-        </button>
-      </div>
     </div>
   );
 }
