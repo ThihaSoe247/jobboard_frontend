@@ -97,7 +97,7 @@ export default function Apply() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="block text-gray-700 font-medium mb-1">
-              Resume (Link or Text)
+              Applicant Name:
             </label>
             <input
               type="text"
@@ -111,7 +111,7 @@ export default function Apply() {
 
           <div>
             <label className="block text-gray-700 font-medium mb-1">
-              Cover Letter
+              Cover Letter:
             </label>
             <textarea
               rows="6"
